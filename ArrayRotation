@@ -1,0 +1,58 @@
+/*
+ * 
+ * Algorithm:
+ * 1. Iterate over array
+ * 2. Find the new index of the current value with the formula:
+ *    newIndex = (currentIndex - no_of_rotation + array_length) % array_length
+ * 3. Swap currentIndex value with newIndex value.
+ * 
+ * */
+
+//Java Program to rotate an array in-place
+import java.util.Arrays;
+
+public class ArrayRotation {
+
+    //main method
+	public static void main(String[] args) {
+		int[] array = {0, 1, 2, 3, 4, 5, 6, 7};
+		System.out.println("*************** Before Rotate ***************");
+		print(array);
+		System.out.println("*********************************************");
+		rotate(array, 3);
+		System.out.println("*************** After Rotate ***************");
+		print(array);
+		System.out.println("*********************************************");
+	}
+	
+    //rotate method
+	private static void rotate(int[] array, int n) {
+		int currIndex = 0, newIndex = 0, backupVal = array[currIndex], newVal = array[currIndex];
+		int i = 0, arrLen = array.length;
+		while (i < arrLen) {
+			currIndex = newIndex;
+                        
+			//compute the new index for current value
+			newIndex = (arrLen - n + currIndex) % arrLen;  
+
+            //take backup of new index value
+			backupVal = array[newIndex];
+                        
+            //assign the value to the new index
+			array[newIndex] = newVal;
+
+			newVal = backupVal;
+			i++;
+		}
+	}
+	
+	//method to print the array
+	private static void print(int[] array) {
+		Arrays.stream(array).forEach(a -> System.out.print(a + " "));
+	}
+}
+
+//Time complexity : O(n)
+//Auxiliary Space : O(1)
+
+// This code is contributed by shantanoo.sinha@gmail.com & siddharth.india51088@gmail.com
