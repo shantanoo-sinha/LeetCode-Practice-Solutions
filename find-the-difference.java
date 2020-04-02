@@ -23,6 +23,19 @@ Explanation:
 class Solution {
     public char findTheDifference(String s, String t) {
     
+        //Good solution
+        //Using XOR for find the extra char value
+        char output = 0;
+        for(char c: s.toCharArray()) {
+            output ^= c;
+        }
+        for(char c: t.toCharArray()) {
+            output ^= c;
+        }
+        return output;
+        
+        /*
+        //Another solution (not the best)
         char output = '0';
         Map<String, Integer> map = new HashMap<>();
         
@@ -44,5 +57,6 @@ class Solution {
             }
         }
         return output;
+        */
     }
 }
