@@ -26,16 +26,30 @@ The above arrows point to positions where the corresponding bits are different.
 */
 
 class Solution {
+    
+       /*
+       public int hammingDistance(int x, int y) {
+              if(x<0 || y<0)
+                     return 0;
+              int a = x^y;
+              int count = 0;
+              while(a!=0) {
+              if((a&1)==1)
+                     count++;
+                     a = a>>1;
+              }
+              return count;
+       }
+    */
     public int hammingDistance(int x, int y) {
-        if(x<0 || y<0)
-            return 0;
-        int a = x^y;
-        int count = 0;
-        while(a!=0) {
-if((a&1)==1)
-    count++;
-            a = a>>1;
-}
-        return count;
+        //Use XOR to calculate the number of bits different in both the numbers
+        int xorValue = x^y;
+        int hammingDistance = 0;
+        //System.out.println(xorValue);
+        while(xorValue != 0) {
+            hammingDistance += (xorValue & 1);
+            xorValue = xorValue >>> 1;
+        }
+        return hammingDistance;
     }
 }
