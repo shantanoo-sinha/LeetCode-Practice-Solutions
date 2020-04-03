@@ -30,6 +30,7 @@ Note:
 
 public class Solution {
     // you need to treat n as an unsigned value
+    /*
     public int hammingWeight(int n) {
         int count = 0;
         while (n!=0) {
@@ -38,5 +39,14 @@ public class Solution {
             n = n>>>1;
         }
         return count;
+    }
+    */
+    public int hammingWeight(int n) {
+        int hammingWeight = 0;
+        while(n!=0) {
+            hammingWeight += (n & 1);
+            n = n >>> 1;
+        }
+        return hammingWeight;
     }
 }
