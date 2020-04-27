@@ -41,15 +41,15 @@ class Solution {
         
         Stack<Character> stack = new Stack<>();
         for(char c : s.toCharArray()) {
-            if((c == '}' || c == ')' || c == ']') && stack.isEmpty())
-                return false;
-            else if(c == '{' || c == '(' || c == '[')
+            if(c == '{' || c == '(' || c == '[')
                 stack.push(c);
-            else if(c == ')' && !stack.isEmpty() && !stack.pop().equals('('))
+            else if(stack.isEmpty())
                 return false;
-            else if(c == '}' && !stack.isEmpty() && !stack.pop().equals('{'))
+            else if(c == ')' && !stack.pop().equals('('))
                 return false;
-            else if(c == ']' && !stack.isEmpty() && !stack.pop().equals('['))
+            else if(c == '}' && !stack.pop().equals('{'))
+                return false;
+            else if(c == ']' && !stack.pop().equals('['))
                 return false;
         }
         return stack.isEmpty();
