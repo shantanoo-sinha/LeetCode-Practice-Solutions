@@ -29,7 +29,10 @@ class Solution {
         int[] multiply = new int[num1.length()+num2.length()];
         for(int i=num1.length()-1; i>=0; i--) {
             for(int j=num2.length()-1; j>=0; j--) {
-                int product = Integer.parseInt(""+num1.charAt(i)) * Integer.parseInt(""+num2.charAt(j));
+                //Changing this
+                //int product = Integer.parseInt(""+num1.charAt(i)) * Integer.parseInt(""+num2.charAt(j));
+                //to below saved much time
+                int product = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
                 multiply[i+j+1] += product%10;
                 multiply[i+j] += product/10;
             }
