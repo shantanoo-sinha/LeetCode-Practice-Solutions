@@ -27,3 +27,14 @@ class Solution {
         return num == 0;
     }
 }
+// Slightly modified loop
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        int i = 1;
+        while (num > i) {
+            num -= i;
+            i = i + 2;
+        }
+        return num == i;
+    }
+}
