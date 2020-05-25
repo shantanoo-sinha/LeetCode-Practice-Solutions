@@ -30,7 +30,8 @@ class Solution {
                 sum += ((nums[j] >> i) & 1);
             }
             sum %= 3;
-            num |= sum << i;
+            if(sum != 0)
+                num |= sum << i;
             sum = 0;
         }
         return num;
