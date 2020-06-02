@@ -43,6 +43,7 @@ Google: 90% of our engineers use the software you wrote (Homebrew), but you canâ
  *     }
  * }
  */
+// DFS - Recursive
 class Solution {
     public TreeNode invertTree(TreeNode root) {
         traverse(root);
@@ -58,5 +59,28 @@ class Solution {
         node.right = left;
         invertTree(node.left);
         invertTree(node.right);
+    }
+}
+
+// BFS - Iterative
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if(root == null)
+            return root;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        
+        while(!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            TreeNode left = node.left;
+            node.left = node.right;
+            node.right = left;
+            
+            if(node.left != null)
+                queue.add(node.left);
+            if(node.right != null)
+                queue.add(node.right);
+        }
+        return root;
     }
 }
