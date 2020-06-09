@@ -32,7 +32,6 @@ Constraints:
 Both strings consists only of lowercase characters.
 
 */
-
 class Solution {
     public boolean isSubsequence(String s, String t) {
         int i=0;
