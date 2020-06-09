@@ -36,7 +36,7 @@ class Solution {
 class Solution {
     public boolean isPowerOfTwo(int n) {        
         // Cout number of set bits in the number
-        // For power of tow numbers, only 1 bit should be set
+        // For power of two numbers, only 1 bit should be set
         int numOfSetBits = 0;
         while(n > 0) {
             if((n & 1) == 1)
