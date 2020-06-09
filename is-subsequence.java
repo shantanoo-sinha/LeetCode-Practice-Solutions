@@ -41,6 +41,6 @@ class Solution {
             else if(s.charAt(i) == c)
                 i++;
         }
-        return i==s.length() ? true : false;
+        return (i==s.length()) ? true : false;
     }
 }
