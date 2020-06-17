@@ -41,6 +41,7 @@ Note that an empty tree is represented by NULL, therefore you would see the expe
  *     }
  * }
  */
+// Recursive
 class Solution {
     public TreeNode searchBST(TreeNode root, int val) {
         if(root == null)
@@ -55,9 +56,24 @@ class Solution {
     }
 }
 
-// 1-line solution
+// 1-line Recursive solution
 class Solution {
     public TreeNode searchBST(TreeNode root, int val) {
         return (root == null || root.val == val) ? root : ((root.val > val) ? searchBST(root.left, val) : searchBST(root.right, val));
+    }
+}
+
+// Iterative
+class Solution {
+    public TreeNode searchBST(TreeNode root, int val) {
+        while(root != null) {
+            if(root.val == val)
+                return root;
+            else if(root.val > val)
+                root = root.left;
+            else if(root.val < val)
+                root = root.right;
+        }
+        return null;
     }
 }
