@@ -53,6 +53,7 @@ Therefore, sum = 495 + 491 + 40 = 1026.
  *     }
  * }
  */
+// Recursive
 class Solution {
     int sum = 0;
     public int sumNumbers(TreeNode root) {
@@ -71,5 +72,37 @@ class Solution {
             traverse(node.left, (num*10)+node.left.val);
         if(node.right != null)
             traverse(node.right, (num*10)+node.right.val);
+    }
+}
+
+// Iterative
+class Solution {
+    
+    public int sumNumbers(TreeNode root) {
+        int sum = 0;
+        
+        if(root == null)
+            return sum;
+        
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        
+        while(!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            
+            if(node.left == null && node.right == null){
+                sum += node.val;
+                continue;
+            }
+            if(node.left != null) {
+                node.left.val = (node.val*10)+node.left.val;
+                stack.push(node.left);
+            }
+            if(node.right != null) {
+                node.right.val = (node.val*10)+node.right.val;
+                stack.push(node.right);
+            }
+        }
+        return sum;
     }
 }
