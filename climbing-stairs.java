@@ -30,6 +30,7 @@ Constraints:
 1 <= n <= 45
 
 */
+//Recursive Solution
 class Solution {
     private Map<Integer, Integer> map = new HashMap<Integer, Integer>();
     
@@ -42,12 +43,30 @@ class Solution {
             return 0;
         if(n == 0)
             return 1;
-        Integer val = map.get(n);
-        if(val == null) {
-            val = recurse(n-1) + recurse(n-2);
-            map.put(n, val);
-            return val;
-        } else
-            return val;
+        
+        if(map.containsKey(n))
+           return map.get(n);
+        
+        int val = recurse(n-1) + recurse(n-2);
+        map.put(n, val);
+        return val;
+    }
+}
+
+//Iterative Solution
+class Solution {
+    private Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+    
+    public int climbStairs(int n) {
+        if(n <= 2)
+            return n;
+        
+        int step1 = 1, step2 = 2, totalSteps = 0;
+        for(int i=2; i<n; i++) {
+            totalSteps = step1 + step2;
+            step1 = step2;
+            step2 = totalSteps;
+        }
+        return totalSteps;
     }
 }
