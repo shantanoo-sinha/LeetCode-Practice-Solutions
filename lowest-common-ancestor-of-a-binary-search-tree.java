@@ -10,8 +10,13 @@ According to the definition of LCA on Wikipedia: “The lowest common ancestor i
 
 Given binary search tree:  root = [6,2,8,0,4,7,9,null,null,3,5]
 
-
- 
+            6
+          /   \
+         2     8
+        / \   / \
+       0   4 7   9
+          / \
+         3   5
 
 Example 1:
 Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
