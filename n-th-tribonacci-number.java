@@ -28,6 +28,7 @@ Constraints:
 The answer is guaranteed to fit within a 32-bit integer, ie. answer <= 2^31 - 1.
 
 */
+// Iterative
 class Solution {
     public int tribonacci(int n) {
         if(n<2)
@@ -42,5 +43,27 @@ class Solution {
             t2 = tn;
         }
         return tn;
+    }
+}
+
+// Recursive
+class Solution {
+    public int tribonacci(int n) {
+        if(n==0)
+            return 0;
+        else if(n==1 || n==2)
+            return 1;
+        int[] arr = new int[n+1];
+        arr[0] = 0;
+        arr[1] = 1;
+        arr[2] = 1;
+        return recurse(n, arr);
+    }
+    private int recurse(int n, int[] arr) {
+        if(n<=2)
+            return arr[n];
+        if(arr[n] == 0)
+            arr[n] = recurse(n-1, arr) + recurse(n-2, arr) + recurse(n-3, arr);
+        return arr[n];
     }
 }
