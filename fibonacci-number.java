@@ -31,6 +31,7 @@ Note:
 0 ≤ N ≤ 30.
 
 */
+// Iterative
 class Solution {
     public int fib(int N) {
         if(N < 2)
@@ -42,5 +43,25 @@ class Solution {
             f1 = output;
         }
         return output;
+    }
+}
+
+// Recursive
+class Solution {
+    public int fib(int N) {
+        if(N < 2)
+            return N;
+        int[] arr = new int[N+1];
+        arr[0] = 0;
+        arr[1] = 1;
+        return traverse(N, arr);
+    }
+    
+    private int traverse(int n, int[] arr) {
+        if(n < 2)
+            return n;
+        if(arr[n] == 0)
+            arr[n] = traverse(n-1, arr) + traverse(n-2, arr);
+        return arr[n];
     }
 }
