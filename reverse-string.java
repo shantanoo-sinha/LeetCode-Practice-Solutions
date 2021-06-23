@@ -22,6 +22,8 @@ Output: ["h","a","n","n","a","H"]
 
 */
 // Approach 1 - Iterative
+// Time Complexity: O(N)
+// Space Complexity: O(1)
 class Solution {
     public void reverseString(char[] s) {
         if(s == null)
@@ -37,6 +39,8 @@ class Solution {
 
 
 // Approach 2 - Recursive
+// Time Complexity: O(N)
+// Space Complexity: O(N) including the recursion stack
 class Solution {
     public void reverseString(char[] s) {
         reverse(s, 0, s.length-1);
