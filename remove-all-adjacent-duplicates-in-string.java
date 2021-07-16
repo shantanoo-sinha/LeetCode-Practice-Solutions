@@ -27,6 +27,7 @@ Constraints:
     s consists of lowercase English letters.
 
 */
+// Approach 1
 class Solution {
     public String removeDuplicates(String s) {
         StringBuilder sb = new StringBuilder(s);
@@ -36,6 +37,27 @@ class Solution {
                 i = Math.max(0, i - 2);
             }
         }
+        return sb.toString();
+    }
+}
+
+// Approach 2 - Using Stack
+class Solution {
+    public String removeDuplicates(String s) {
+        Stack<Character> stack = new Stack<>();
+        stack.push(s.charAt(0));
+        
+        for(int i=1; i<s.length(); i++) {
+            if(!stack.isEmpty() && stack.peek() == s.charAt(i))
+                stack.pop();
+            else
+                stack.push(s.charAt(i));
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        for(char c : stack)
+            sb.append(c);
+        
         return sb.toString();
     }
 }
