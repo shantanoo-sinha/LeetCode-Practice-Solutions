@@ -72,7 +72,7 @@ class Solution {
     }
 }
 
-//Recursive Solution
+// Recursive Solution
 class Solution {
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if(root == null)
