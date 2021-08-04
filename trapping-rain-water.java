@@ -23,6 +23,7 @@ Constraints:
     0 <= height[i] <= 10^5
 
 */
+// Approach 1
 class Solution {
     public int trap(int[] height) {
         if(height == null || height.length < 3)
