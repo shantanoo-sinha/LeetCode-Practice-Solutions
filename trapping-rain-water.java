@@ -24,6 +24,9 @@ Constraints:
 
 */
 // Approach 1
+// Dynamic Programming with memoization & triple iteration
+// Time Complexity - O(n) with Triple Iteration
+// Space Complexity - O(n)
 class Solution {
     public int trap(int[] height) {
         if(height == null || height.length < 3)
