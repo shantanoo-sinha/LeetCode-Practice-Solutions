@@ -23,7 +23,35 @@ Constraints:
     0 <= height[i] <= 10^5
 
 */
-// Dynamic Programming with single iteration
+class Solution {
+    public int trap(int[] height) {
+        if(height == null || height.length < 3)
+            return 0;
+        
+        int[] leftMax = new int[height.length];
+        leftMax[0] = height[0];
+        for(int i=1; i<height.length; i++) {
+            leftMax[i] = Math.max(leftMax[i-1], height[i]);
+        }
+        
+        int[] rightMax = new int[height.length];
+        rightMax[height.length-1] = height[height.length-1];
+        for(int i=height.length-2; i>=0; i--) {
+            rightMax[i] = Math.max(rightMax[i+1], height[i]);
+        }
+        
+        int output = 0;
+        for(int i=0; i<height.length; i++) {
+            output += Math.min(leftMax[i], rightMax[i]) - height[i];
+        }
+        return output;
+    }
+}
+
+// Approach 2
+// Dynamic Programming with single iteration - Two Pointer approach
+// Time Complexity - O(n) with Single Iteration
+// Space Complexity - O(1)
 class Solution {
     public int trap(int[] height) {
         int total = 0, leftMax = 0, rightMax = 0;
