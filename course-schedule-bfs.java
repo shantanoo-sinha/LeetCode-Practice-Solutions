@@ -2,7 +2,7 @@
 
 Reference: https://leetcode.com/problems/course-schedule/
 
-207. Course Schedule
+207. Course Schedule - Medium
 
 There are a total of numCourses courses you have to take, labeled from 0 to numCourses-1.
 
